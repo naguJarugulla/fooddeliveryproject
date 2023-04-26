@@ -472,7 +472,7 @@ def readcontact():
     details=cursor.fetchall()
     return render_template('readcontact.html',details=details)
 if __name__=='__main__':
-app.run(debug=True, use_reloader=True)
+    app.run(debug=True, use_reloader=True)
     
     
        
