@@ -28,7 +28,7 @@ password=os.environ['RDS_PASSWORD']
 host=os.environ['RDS_HOSTNAME']
 port=os.environ['RDS_PORT']
 
-mydb=mysql.connector.connect(host='host',user=user,password=password,db=db,port=port)
+mydb=mysql.connector.connect(host=host,user=user,password=password,db=db,port=port)
 with mysql.connector.connect(host=host,user=user,password=password,db=db,port=port) as conn:
     cursor=conn.cursor()
     cursor.execute("create table if not exists user(name varchar(30) primary key,email varchar(40) unique,password varchar(10),phnumber bigint unique,state varchar(20),address varchar(50),pincode int)")
