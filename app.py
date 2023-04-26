@@ -33,7 +33,7 @@ with mysql.connector.connect(host=host,user=user,password=password,db=db,port=po
     cursor=conn.cursor()
     cursor.execute("create table if not exists user(name varchar(30) primary key,email varchar(40) unique,password varchar(10),phnumber bigint unique,state varchar(20),address varchar(50),pincode int)")
     cursor.execute("create table if not exists admin(rid varchar(10) primary key,name varchar(20),place  varchar(30),email varchar(40),password varchar(20))")
-    cursor.execute("create table if not exists additems(itemid varchar(9) primary key,name varchar(30),category enum('fastfoods','vegfoods','nonvegfoods','pastry','icecreams','homefood','starters','soups'),price decimal(10,0),foreign key(rid) references references students(rid))")
+    cursor.execute("create table if not exists additems(itemid varchar(9) primary key,name varchar(30),category enum('fastfoods','vegfoods','nonvegfoods','pastry','icecreams','homefood','starters','soups'),price decimal(10,0),foreign key(rid) references admin(rid))")
     cursor.execute("create table if not exists orders(ordid int primary key auto_increment),itemid varchar(9),name varchar(30),qty int,total_price int,user varchar(30),foreign key(itemid) references additems(itemid) on update cascade on delete cascade,foreign key(user) references user(name) on update cascade on delete cascade)")
     cursor.execute("create table if not exists contactus(resturant_name varchar(50),name varchar(30),email varchar(40),subject tinytext,feedback tinytext)")
  
