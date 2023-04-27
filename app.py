@@ -287,7 +287,7 @@ def admindashboard():
         cursor.execute('insert into additems(itemid,name,category,price,rid) values(%s,%s,%s,%s,%s)',[id1,name,category,price,session.get('admin')])
         mydb.commit()
         print(filename)
-        path=os.path.dirname(os.path.abspat(__file__))
+        path=os.path.dirname(os.path.abspath(__file__))
         static_path=os.path.join(path,'static')
         image.save(os.path.join(static_path,filename))
         print('success')
@@ -331,7 +331,7 @@ def deleteitem(itemid):
     cursor.execute('delete from additems where itemid=%s',[itemid])
     mydb.commit()
     cursor.close()
-    path=r"C:\Users\kalyanijarugulla\OneDrive\Desktop\fd\static"
+    path=os.path.dirname(os.path.abspath(__file__))
     filename=f"{itemid}.jpg"
     os.remove(os.path.join(path,filename))
     flash('item deleted successfully')
