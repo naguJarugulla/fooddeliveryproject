@@ -227,7 +227,7 @@ def aotp(otp,rid,rname,place,email,password):
             mydb.commit()
             cursor.close()
             flash('Details Registered')#send mail to the user as successful registration
-            return redirect(url_for('index'))
+            return redirect(url_for('admin'))
         else:
             flash('wrong otp')
             return render_template('aotp.html',otp = otp,rid=rid,rname =rname,place=place,email=email,password= password)
