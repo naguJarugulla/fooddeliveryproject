@@ -5,11 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/00b1661ff0.js" crossorigin="anonymous"></script>
+
     <title>admindashboard</title>
+    <style>
+        .card-body{
+            background-color: bisque;
+        }
+    </style>
 </head>
 <body>
-    <section class="vh-100" style="background-color: #eee;">
+      <section class="vh-100"> 
     <div class="container-fluid">
          <div class="row d-flex border bg-light  justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
@@ -18,12 +23,15 @@
                     <div class="row justify-content-center">
             <div class="col-lg-6 vh-100 bg-black d-flex align-items-center order-1 order-lg-2">
          <form method="POST" enctype="multipart/form-data">
+            <h1>ADD ITEMS</h1>
             <div class="mb-3">
             <label>name</label>
             <input type="text" name="name">
             </div>
             <div class="mb-3">
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="category">category
+                <label>category</label>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="category">
+                    
                     <option >fastfoods</option>
                     <option >vegfoods</option>
                     <option >nonvegfoods</option>
@@ -32,27 +40,33 @@
                     <option>homefood</option>
                     <option>starters</option>
                     <option>soups</option>
+                    
                   </select>
             </div>
             <div class="mb-3">
+                <label>price </label>
             <input type="number" name="price">
-            <label>price </label>
             </div>
         <div class="mb-3">
-            <input type="file" name="image">
             <label>image</label>
+            <input type="file" name="image">
         </div>
             <button>submit</button>
+
     </form>
     </div><!--container div-->
+
     <div class="col-lg-6 vh-100 border bg-light d-flex align-items-center order-1 order-lg-2">
-        <img src="https://c.ndtvimg.com/2020-04/9huqiq18_healthy-food_625x300_06_April_20.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=886"
+        <!-- <img src="https://c.ndtvimg.com/2020-04/9huqiq18_healthy-food_625x300_06_April_20.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=886" -->
+        <img src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg"
         class="img-fluid" alt="Sample image">
     </div>
     </div><!--row div-->
     </div></div></div></div>
 
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
 </body>
 </html>
-
