@@ -334,7 +334,7 @@ def deleteitem(itemid):
     path=os.path.dirname(os.path.abspath(__file__))
     static_path=os.path.join(path,'static')
     filename=f"{itemid}.jpg"
-    os.remove(os.path.join(path,filename))
+    os.remove(os.path.join(static_path,filename))
     flash('item deleted successfully')
     return redirect(url_for('available'))
 @app.route('/admin')
