@@ -332,6 +332,7 @@ def deleteitem(itemid):
     mydb.commit()
     cursor.close()
     path=os.path.dirname(os.path.abspath(__file__))
+    static_path=os.path.join(path,'static')
     filename=f"{itemid}.jpg"
     os.remove(os.path.join(path,filename))
     flash('item deleted successfully')
