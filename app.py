@@ -39,7 +39,7 @@ with mysql.connector.connect(host=host,user=user,password=password,db=db,port=po
  
 
 Session(app)
-
+mysql = MySQL(app)
 @app.route('/') 
 def index():
     cursor=mydb.cursor(buffered=True)
