@@ -45,6 +45,15 @@ def index():
     cursor=mydb.cursor(buffered=True)
     cursor.execute('select name from admin')
     resturants=cursor.fetchall()
+     if request.method=='POST':
+        rname=request.form['rnames']
+        name=request.form['name']
+        email=request.form['email']
+        subject=request.form['subject']
+        feedback=request.form['feedback']
+        cursor.execute('insert into contactus values(%s,%s,%s,%s,%s)',[rname,name,email,subject,feedback])
+        mysql.connection.commit()
+        flash('Details submitted!')
     return render_template('home.html',resturants=resturants)
 @app.route('/signin', methods = ['GET','POST'])
 def register():
@@ -468,10 +477,16 @@ def contactus():
     return render_template('home.html')
 @app.route('/readcontact')
 def readcontact():
-    cursor=mydb.cursor(buffered=True)
-    cursor.execute('select * from contactus ')
-    details=cursor.fetchall()
-    return render_template('readcontact.html',details=details)
+    if session.get('admin'):
+        cursor=mysql.connection.cursor()
+        cursor.execute('select name from admin where rid=%s',[session.get('admin')])
+        r_data=cursor.fetchone()
+        cursor.execute('select * from contactus where resturant_name=%s',[r_data])
+        
+        details=cursor.fetchall()
+        return render_template('readcontact.html',details=details) 
+    else:
+        return redirect(url_for('alogin'))
 if __name__=='__main__':
     app.run(debug=True, use_reloader=True)
     
