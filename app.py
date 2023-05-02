@@ -45,7 +45,7 @@ def index():
     cursor=mydb.cursor(buffered=True)
     cursor.execute('select name from admin')
     resturants=cursor.fetchall()
-     if request.method=='POST':
+    if request.method=='POST':
         rname=request.form['rnames']
         name=request.form['name']
         email=request.form['email']
