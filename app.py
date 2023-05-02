@@ -40,7 +40,7 @@ with mysql.connector.connect(host=host,user=user,password=password,db=db,port=po
 
 Session(app)
 
-@app.route('/') 
+@app.route('/',methods=['GET','POST']) 
 def index():
     cursor=mydb.cursor(buffered=True)
     cursor.execute('select name from admin')
