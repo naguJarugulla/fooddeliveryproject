@@ -366,7 +366,7 @@ margin-left: 80%;
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               {% for i in resturants %}
-              <a class="dropdown-item" href="{{url_for('resturantshome',name=i[0])}}">{{i[0]}}</a>
+              <a class="dropdown-item" href="{{url_for('index',name=i[0])}}">{{i[0]}}</a>#index
               {% endfor %}
             </div>
               <form method="POST">
