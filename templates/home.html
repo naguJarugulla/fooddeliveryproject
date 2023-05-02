@@ -361,27 +361,29 @@ margin-left: 80%;
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244820.24784205385!2d80.50479758470054!3d16.510118138668407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35eff9482d944b%3A0x939b7e84ab4a0265!2sVijayawada%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1680763139626!5m2!1sen!2sin" width="450" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div class="col-12 col-lg-6">  
-            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Resturants
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              {% for i in resturants %}
-              <a class="dropdown-item" href="{{url_for('index',name=i[0])}}">{{i[0]}}</a>#index
-              {% endfor %}
-            </div>
-              <form method="POST">
+            
+            <form method="POST">
+                <label>Resturants</label>
+                <select name="rnames" class="form-control form-control-lg">
+                  {% for i in resturants %}
+                  <option>{{i[0]}}</option>
+                  {% endfor %}
+                </select><br>
+              
                   <input class="form-control form-control-lg" type="text" placeholder="Name" name="name">
           <input class="form-control form-control-lg mt-3" type="email" placeholder="Email" name="email">
           <input class="form-control form-control-lg mt-3" type="text" placeholder="Subject" name="subject">
           <textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" placeholder="Feedback" name="feedback"></textarea> 
+          <button class="btn btn-success mt-3" type="submit">Contact Us</button>
+
               </form>
-              <button class="btn btn-success mt-3" type="submit">Contact Us</button>
           </div>
       </div>
   </div>
 </section>
 </div>
 {% endblock %}
+
 
 
 
