@@ -52,7 +52,7 @@ def index():
         subject=request.form['subject']
         feedback=request.form['feedback']
         cursor.execute('insert into contactus values(%s,%s,%s,%s,%s)',[rname,name,email,subject,feedback])
-        mysql.connection.commit()
+        mydb.commit()
         flash('Details submitted!')
     return render_template('home.html',resturants=resturants)
 @app.route('/signin', methods = ['GET','POST'])
@@ -478,7 +478,7 @@ def contactus():
 @app.route('/readcontact')
 def readcontact():
     if session.get('admin'):
-        cursor=mysql.connection.cursor()
+        cursor=mydb.cursor(bufferef=True)
         cursor.execute('select name from admin where rid=%s',[session.get('admin')])
         r_data=cursor.fetchone()
         cursor.execute('select * from contactus where resturant_name=%s',[r_data])
