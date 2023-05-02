@@ -478,7 +478,7 @@ def contactus():
 @app.route('/readcontact')
 def readcontact():
     if session.get('admin'):
-        cursor=mydb.cursor(bufferef=True)
+        cursor=mydb.cursor(buffered=True)
         cursor.execute('select name from admin where rid=%s',[session.get('admin')])
         r_data=cursor.fetchone()
         cursor.execute('select * from contactus where resturant_name=%s',[r_data])
