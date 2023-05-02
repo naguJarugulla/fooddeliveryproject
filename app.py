@@ -480,7 +480,7 @@ def readcontact():
     if session.get('admin'):
         cursor=mydb.cursor(buffered=True)
         cursor.execute('select name from admin where rid=%s',[session.get('admin')])
-        r_data=cursor.fetchone()
+        r_data=cursor.fetchone()[0]
         cursor.execute('select * from contactus where resturant_name=%s',[r_data])
         
         details=cursor.fetchall()
